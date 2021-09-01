@@ -42,8 +42,8 @@ public class FlowController {
     @PutMapping("/flow/deployment/{id}")
     public Integer deployment(HttpServletRequest request, @PathVariable(name = "id")Long id){
         FlowInfo flowInfo = flowService.findOneFlow(id);
-        if(flowInfo.getState() == 0){
-            return 2;
+        if(flowInfo.getState() == 1 || flowInfo.getState() == 2){
+            return flowInfo.getState();
         }
         actFlowCommService.saveNewDeploy(flowInfo);
         return flowService.updateDeployState(id);
