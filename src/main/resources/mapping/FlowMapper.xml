@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.gwd.mapper.FlowMapper">
+
+    <resultMap id="BaseResultMap" type="com.gwd.entity.FlowInfo">
+        <result column="id" jdbcType="INTEGER" property="id" />
+        <result column="flowname" jdbcType="VARCHAR" property="flowname" />
+        <result column="flowkey" jdbcType="VARCHAR" property="flowkey" />
+        <result column="filepath" jdbcType="VARCHAR" property="filepath" />
+        <result column="state" jdbcType="INTEGER" property="state" />
+        <result column="createtime" jdbcType="TIMESTAMP" property="createtime" />
+    </resultMap>
+    <select id="selectFlowList" resultMap="BaseResultMap">
+        select * from tb_flow order by createtime desc
+    </select>
+
+    <select id="selectOneFlow" resultMap="BaseResultMap">
+        select * from tb_flow where id=#{id
+    </select>
+
+    <update id="updateFlowDeployState" parameterType="java.lang.INTEGER">
+        update tb_flow set state = 2 where id=#{id}
+    </update>
+
+</mapper>
