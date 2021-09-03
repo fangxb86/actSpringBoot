@@ -24,6 +24,5 @@ mybatis:
 #showSql
 logging:
   level:
-    com:
-      gwd:
-        mapper : debug
+    com.gwd.mapper : debug
+    org.activiti.engine.impl.persistence.entity: trace

@@ -15,10 +15,10 @@
     </select>
 
     <select id="selectOneFlow" resultMap="BaseResultMap">
-        select * from tb_flow where id=#{id
+        select * from tb_flow where id=#{id}
     </select>
 
-    <update id="updateFlowDeployState" parameterType="java.lang.Integer">
+    <update id="updateFlowDeployState">
         update tb_flow set state = 2 where id=#{id}
     </update>
 
