@@ -18,7 +18,7 @@
         select * from tb_flow where id=#{id
     </select>
 
-    <update id="updateFlowDeployState" parameterType="java.lang.INTEGER">
+    <update id="updateFlowDeployState" parameterType="java.lang.Integer">
         update tb_flow set state = 2 where id=#{id}
     </update>
 
