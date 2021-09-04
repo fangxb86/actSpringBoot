@@ -8,3 +8,4 @@ http://localhost:8080/login.html
 登录密码:123456
 //swagger访问地址
 http://localhost:8080/swagger-ui.html
+//使用junit测试你的代码
