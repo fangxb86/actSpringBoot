@@ -1,2 +1,4 @@
-//下载代码
+//浠ｇ爜涓嬭浇鍛戒护
 git clone -b master https://github.com/fangxb86/actSpringBoot.git
+//mybatis鐢熸垚宸ュ叿浣跨敤鍛戒护
+mvn mybatis-generator:generate
