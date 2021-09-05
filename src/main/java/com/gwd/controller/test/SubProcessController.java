@@ -2,6 +2,7 @@ package com.gwd.controller.test;
 
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
+import lombok.extern.slf4j.Slf4j;
 import org.activiti.engine.*;
 import org.activiti.engine.repository.Deployment;
 import org.activiti.engine.task.Task;
@@ -14,6 +15,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+@Slf4j
 @RestController
 @RequestMapping("/subp")
 @Api("Activiti子流程例子subp")
@@ -41,8 +43,8 @@ public class SubProcessController {
                 .name("子流程")
                 .deploy();
 //        4、输出部署信息
-        System.out.println("流程部署id：" + deployment.getId());
-        System.out.println("流程部署名称：" + deployment.getName());
+        log.info("流程部署id：{}",deployment.getId());
+        log.info("流程部署名称：{}",deployment.getName());
     }
  
     @ApiOperation("启动实例")
@@ -70,7 +72,7 @@ public class SubProcessController {
         System.out.println("查询任务");
         List<Task> taskList = taskService.createTaskQuery().processDefinitionKey(processDefindKey).list();
         for (Task task : taskList){
-            System.out.println("taskId:"+task.getId()+" execId:"+task.getExecutionId()+" 流程实例id："+task.getProcessInstanceId()+" 任务key："+task.getTaskDefinitionKey());
+            log.info("taskId:{}, execId:{},  流程实例id：{},  任务key：",task.getId(),task.getExecutionId(),task.getProcessInstanceId(),task.getTaskDefinitionKey());
         }
     }
 
