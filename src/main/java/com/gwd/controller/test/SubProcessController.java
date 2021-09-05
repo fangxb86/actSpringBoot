@@ -31,7 +31,7 @@ public class SubProcessController {
     private HistoryService historyService;
  
  
-    private static String processDefindKey= "MyFourProcess";
+    private static String processDefindKey= "myProcess";
 
     @ApiOperation("部署流程")
     @GetMapping("deployProcess")
@@ -50,8 +50,7 @@ public class SubProcessController {
     public void startProcess(){
         System.out.println("启动实例");
         Map paramMap = new HashMap<>();
-        paramMap.put("myname","王小宝");
-        paramMap.put("flow","3");
+        paramMap.put("nextStepFlag","0");
         runtimeService.startProcessInstanceByKey(processDefindKey,paramMap);
  
     }
@@ -79,7 +78,7 @@ public class SubProcessController {
     @GetMapping("delDeploy")
     public void deleteDeployMent(){
 //        通过部署id来删除流程部署信息
-        String deploymentId = "52501";
+        String deploymentId = "1040813f-0b1e-11ec-a5b1-4ccc6a42031c";
         repositoryService.deleteDeployment(deploymentId,true);
     }
 }
