@@ -3,6 +3,8 @@ package com.gwd.controller;
 import com.gwd.entity.Evection;
 import com.gwd.service.ActFlowCommService;
 import com.gwd.service.EvectionService;
+import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiOperation;
 import lombok.extern.slf4j.Slf4j;
 import org.activiti.engine.runtime.ProcessInstance;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,20 +17,19 @@ import java.util.Map;
 
 @Slf4j
 @RestController
+@Api("出差管理")
 public class EvectionController {
     @Autowired
     private EvectionService evectionService;
-    /**
-     * 查询本人的出差申请
-     * @param request
-     * @return
-     */
+
+    @ApiOperation("查询本人的出差申请")
     @GetMapping("/evection/findAll")
     public List<Evection> findAll(HttpServletRequest request){
         Long userId = (Long)request.getSession().getAttribute("userid");
         return evectionService.findList(userId);
     }
 
+    @ApiOperation("根据evectionId查询出差申请")
     @GetMapping("/evection/{id}")
     public Evection findAll(HttpServletRequest request, @PathVariable(name = "id")Long evectionId){
         Long userId = (Long)request.getSession().getAttribute("userid");
@@ -37,11 +38,8 @@ public class EvectionController {
 
     @Autowired
     private ActFlowCommService actFlowCommService;
-    /**
-     * 新增出差申请
-     * @param request
-     * @param evection
-     */
+
+    @ApiOperation("新增出差申请")
     @PostMapping("/evection/add")
     public void addEvection(HttpServletRequest request,@RequestBody  Evection evection){
         Long userId = (Long)request.getSession().getAttribute("userid");
