@@ -1,4 +1,4 @@
-package com.gwd.controller;
+package com.gwd.controller.test;
 
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
