@@ -1,0 +1,164 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.gwd.mapper.AdtEvtRcrdMapper">
+  <resultMap id="BaseResultMap" type="com.gwd.entity.AdtEvtRcrd">
+    <constructor>
+      <arg column="adt_evt_id" javaType="java.lang.Long" jdbcType="BIGINT" />
+      <arg column="adt_evt_nm" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="adt_prj_id" javaType="java.lang.Long" jdbcType="BIGINT" />
+      <arg column="adt_grp_id" javaType="java.lang.Long" jdbcType="BIGINT" />
+      <arg column="by_inst_id" javaType="java.lang.Long" jdbcType="BIGINT" />
+      <arg column="untitled6" javaType="java.lang.Long" jdbcType="BIGINT" />
+      <arg column="adt_psn_id" javaType="java.lang.Long" jdbcType="BIGINT" />
+      <arg column="adt_item_id" javaType="java.lang.Long" jdbcType="BIGINT" />
+      <arg column="proc_desc" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="sttn_desc" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="diff_ind" javaType="java.lang.Byte" jdbcType="TINYINT" />
+      <arg column="diff_desc" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="adt_acrdto" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="created_dft" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="state" javaType="java.lang.Byte" jdbcType="TINYINT" />
+      <arg column="created_by" javaType="java.lang.Long" jdbcType="BIGINT" />
+      <arg column="created_time" javaType="java.util.Date" jdbcType="TIMESTAMP" />
+      <arg column="updated_by" javaType="java.lang.Long" jdbcType="BIGINT" />
+      <arg column="updated_time" javaType="java.util.Date" jdbcType="TIMESTAMP" />
+    </constructor>
+  </resultMap>
+  <insert id="insert" parameterType="com.gwd.entity.AdtEvtRcrd">
+    insert into adt_evt_rcrd (adt_evt_id, adt_evt_nm, adt_prj_id, 
+      adt_grp_id, by_inst_id, untitled6, 
+      adt_psn_id, adt_item_id, proc_desc, 
+      sttn_desc, diff_ind, diff_desc, 
+      adt_acrdto, created_dft, state, 
+      created_by, created_time, updated_by, 
+      updated_time)
+    values (#{adtEvtId,jdbcType=BIGINT}, #{adtEvtNm,jdbcType=VARCHAR}, #{adtPrjId,jdbcType=BIGINT}, 
+      #{adtGrpId,jdbcType=BIGINT}, #{byInstId,jdbcType=BIGINT}, #{untitled6,jdbcType=BIGINT}, 
+      #{adtPsnId,jdbcType=BIGINT}, #{adtItemId,jdbcType=BIGINT}, #{procDesc,jdbcType=VARCHAR}, 
+      #{sttnDesc,jdbcType=VARCHAR}, #{diffInd,jdbcType=TINYINT}, #{diffDesc,jdbcType=VARCHAR}, 
+      #{adtAcrdto,jdbcType=VARCHAR}, #{createdDft,jdbcType=VARCHAR}, #{state,jdbcType=TINYINT}, 
+      #{createdBy,jdbcType=BIGINT}, #{createdTime,jdbcType=TIMESTAMP}, #{updatedBy,jdbcType=BIGINT}, 
+      #{updatedTime,jdbcType=TIMESTAMP})
+  </insert>
+  <insert id="insertSelective" parameterType="com.gwd.entity.AdtEvtRcrd">
+    insert into adt_evt_rcrd
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="adtEvtId != null">
+        adt_evt_id,
+      </if>
+      <if test="adtEvtNm != null">
+        adt_evt_nm,
+      </if>
+      <if test="adtPrjId != null">
+        adt_prj_id,
+      </if>
+      <if test="adtGrpId != null">
+        adt_grp_id,
+      </if>
+      <if test="byInstId != null">
+        by_inst_id,
+      </if>
+      <if test="untitled6 != null">
+        untitled6,
+      </if>
+      <if test="adtPsnId != null">
+        adt_psn_id,
+      </if>
+      <if test="adtItemId != null">
+        adt_item_id,
+      </if>
+      <if test="procDesc != null">
+        proc_desc,
+      </if>
+      <if test="sttnDesc != null">
+        sttn_desc,
+      </if>
+      <if test="diffInd != null">
+        diff_ind,
+      </if>
+      <if test="diffDesc != null">
+        diff_desc,
+      </if>
+      <if test="adtAcrdto != null">
+        adt_acrdto,
+      </if>
+      <if test="createdDft != null">
+        created_dft,
+      </if>
+      <if test="state != null">
+        state,
+      </if>
+      <if test="createdBy != null">
+        created_by,
+      </if>
+      <if test="createdTime != null">
+        created_time,
+      </if>
+      <if test="updatedBy != null">
+        updated_by,
+      </if>
+      <if test="updatedTime != null">
+        updated_time,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="adtEvtId != null">
+        #{adtEvtId,jdbcType=BIGINT},
+      </if>
+      <if test="adtEvtNm != null">
+        #{adtEvtNm,jdbcType=VARCHAR},
+      </if>
+      <if test="adtPrjId != null">
+        #{adtPrjId,jdbcType=BIGINT},
+      </if>
+      <if test="adtGrpId != null">
+        #{adtGrpId,jdbcType=BIGINT},
+      </if>
+      <if test="byInstId != null">
+        #{byInstId,jdbcType=BIGINT},
+      </if>
+      <if test="untitled6 != null">
+        #{untitled6,jdbcType=BIGINT},
+      </if>
+      <if test="adtPsnId != null">
+        #{adtPsnId,jdbcType=BIGINT},
+      </if>
+      <if test="adtItemId != null">
+        #{adtItemId,jdbcType=BIGINT},
+      </if>
+      <if test="procDesc != null">
+        #{procDesc,jdbcType=VARCHAR},
+      </if>
+      <if test="sttnDesc != null">
+        #{sttnDesc,jdbcType=VARCHAR},
+      </if>
+      <if test="diffInd != null">
+        #{diffInd,jdbcType=TINYINT},
+      </if>
+      <if test="diffDesc != null">
+        #{diffDesc,jdbcType=VARCHAR},
+      </if>
+      <if test="adtAcrdto != null">
+        #{adtAcrdto,jdbcType=VARCHAR},
+      </if>
+      <if test="createdDft != null">
+        #{createdDft,jdbcType=VARCHAR},
+      </if>
+      <if test="state != null">
+        #{state,jdbcType=TINYINT},
+      </if>
+      <if test="createdBy != null">
+        #{createdBy,jdbcType=BIGINT},
+      </if>
+      <if test="createdTime != null">
+        #{createdTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updatedBy != null">
+        #{updatedBy,jdbcType=BIGINT},
+      </if>
+      <if test="updatedTime != null">
+        #{updatedTime,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+</mapper>

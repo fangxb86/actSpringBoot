@@ -2,14 +2,14 @@ package com.gwd.entity;
 
 import java.util.Date;
 
-public class SysRole {
-    private String roleId;
+public class AdtPrjRate {
+    private Long adtPrjId;
 
-    private String roleNm;
+    private Byte rate;
 
-    private Byte statInd;
+    private Byte score;
 
-    private Byte statType;
+    private Long fileUploaderId;
 
     private Long createdBy;
 
@@ -19,51 +19,51 @@ public class SysRole {
 
     private Date updatedTime;
 
-    public SysRole(String roleId, String roleNm, Byte statInd, Byte statType, Long createdBy, Date createdTime, Long updatedBy, Date updatedTime) {
-        this.roleId = roleId;
-        this.roleNm = roleNm;
-        this.statInd = statInd;
-        this.statType = statType;
+    public AdtPrjRate(Long adtPrjId, Byte rate, Byte score, Long fileUploaderId, Long createdBy, Date createdTime, Long updatedBy, Date updatedTime) {
+        this.adtPrjId = adtPrjId;
+        this.rate = rate;
+        this.score = score;
+        this.fileUploaderId = fileUploaderId;
         this.createdBy = createdBy;
         this.createdTime = createdTime;
         this.updatedBy = updatedBy;
         this.updatedTime = updatedTime;
     }
 
-    public SysRole() {
+    public AdtPrjRate() {
         super();
     }
 
-    public String getRoleId() {
-        return roleId;
+    public Long getAdtPrjId() {
+        return adtPrjId;
     }
 
-    public void setRoleId(String roleId) {
-        this.roleId = roleId == null ? null : roleId.trim();
+    public void setAdtPrjId(Long adtPrjId) {
+        this.adtPrjId = adtPrjId;
     }
 
-    public String getRoleNm() {
-        return roleNm;
+    public Byte getRate() {
+        return rate;
     }
 
-    public void setRoleNm(String roleNm) {
-        this.roleNm = roleNm == null ? null : roleNm.trim();
+    public void setRate(Byte rate) {
+        this.rate = rate;
     }
 
-    public Byte getStatInd() {
-        return statInd;
+    public Byte getScore() {
+        return score;
     }
 
-    public void setStatInd(Byte statInd) {
-        this.statInd = statInd;
+    public void setScore(Byte score) {
+        this.score = score;
     }
 
-    public Byte getStatType() {
-        return statType;
+    public Long getFileUploaderId() {
+        return fileUploaderId;
     }
 
-    public void setStatType(Byte statType) {
-        this.statType = statType;
+    public void setFileUploaderId(Long fileUploaderId) {
+        this.fileUploaderId = fileUploaderId;
     }
 
     public Long getCreatedBy() {

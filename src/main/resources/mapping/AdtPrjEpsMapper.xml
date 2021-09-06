@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.gwd.mapper.AdtPrjEpsMapper">
+  <resultMap id="BaseResultMap" type="com.gwd.entity.AdtPrjEps">
+    <constructor>
+      <arg column="lgc_sn" javaType="java.lang.Long" jdbcType="BIGINT" />
+      <arg column="adt_grp_id" javaType="java.lang.Long" jdbcType="BIGINT" />
+      <arg column="eps_type" javaType="java.lang.Byte" jdbcType="TINYINT" />
+      <arg column="est_emp_num" javaType="java.lang.Byte" jdbcType="TINYINT" />
+      <arg column="est_day_num" javaType="java.lang.Short" jdbcType="SMALLINT" />
+      <arg column="est_unit_prc" javaType="java.lang.Short" jdbcType="SMALLINT" />
+      <arg column="act_emp_num" javaType="java.lang.Byte" jdbcType="TINYINT" />
+      <arg column="act_day_num" javaType="java.lang.Short" jdbcType="SMALLINT" />
+      <arg column="act_unit_prc" javaType="java.lang.Short" jdbcType="SMALLINT" />
+      <arg column="remark" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="created_by" javaType="java.lang.Long" jdbcType="BIGINT" />
+      <arg column="created_time" javaType="java.util.Date" jdbcType="TIMESTAMP" />
+      <arg column="updated_by" javaType="java.lang.Long" jdbcType="BIGINT" />
+      <arg column="updated_time" javaType="java.util.Date" jdbcType="TIMESTAMP" />
+    </constructor>
+  </resultMap>
+  <insert id="insert" parameterType="com.gwd.entity.AdtPrjEps">
+    insert into adt_prj_eps (lgc_sn, adt_grp_id, eps_type, 
+      est_emp_num, est_day_num, est_unit_prc, 
+      act_emp_num, act_day_num, act_unit_prc, 
+      remark, created_by, created_time, 
+      updated_by, updated_time)
+    values (#{lgcSn,jdbcType=BIGINT}, #{adtGrpId,jdbcType=BIGINT}, #{epsType,jdbcType=TINYINT}, 
+      #{estEmpNum,jdbcType=TINYINT}, #{estDayNum,jdbcType=SMALLINT}, #{estUnitPrc,jdbcType=SMALLINT}, 
+      #{actEmpNum,jdbcType=TINYINT}, #{actDayNum,jdbcType=SMALLINT}, #{actUnitPrc,jdbcType=SMALLINT}, 
+      #{remark,jdbcType=VARCHAR}, #{createdBy,jdbcType=BIGINT}, #{createdTime,jdbcType=TIMESTAMP}, 
+      #{updatedBy,jdbcType=BIGINT}, #{updatedTime,jdbcType=TIMESTAMP})
+  </insert>
+  <insert id="insertSelective" parameterType="com.gwd.entity.AdtPrjEps">
+    insert into adt_prj_eps
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="lgcSn != null">
+        lgc_sn,
+      </if>
+      <if test="adtGrpId != null">
+        adt_grp_id,
+      </if>
+      <if test="epsType != null">
+        eps_type,
+      </if>
+      <if test="estEmpNum != null">
+        est_emp_num,
+      </if>
+      <if test="estDayNum != null">
+        est_day_num,
+      </if>
+      <if test="estUnitPrc != null">
+        est_unit_prc,
+      </if>
+      <if test="actEmpNum != null">
+        act_emp_num,
+      </if>
+      <if test="actDayNum != null">
+        act_day_num,
+      </if>
+      <if test="actUnitPrc != null">
+        act_unit_prc,
+      </if>
+      <if test="remark != null">
+        remark,
+      </if>
+      <if test="createdBy != null">
+        created_by,
+      </if>
+      <if test="createdTime != null">
+        created_time,
+      </if>
+      <if test="updatedBy != null">
+        updated_by,
+      </if>
+      <if test="updatedTime != null">
+        updated_time,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="lgcSn != null">
+        #{lgcSn,jdbcType=BIGINT},
+      </if>
+      <if test="adtGrpId != null">
+        #{adtGrpId,jdbcType=BIGINT},
+      </if>
+      <if test="epsType != null">
+        #{epsType,jdbcType=TINYINT},
+      </if>
+      <if test="estEmpNum != null">
+        #{estEmpNum,jdbcType=TINYINT},
+      </if>
+      <if test="estDayNum != null">
+        #{estDayNum,jdbcType=SMALLINT},
+      </if>
+      <if test="estUnitPrc != null">
+        #{estUnitPrc,jdbcType=SMALLINT},
+      </if>
+      <if test="actEmpNum != null">
+        #{actEmpNum,jdbcType=TINYINT},
+      </if>
+      <if test="actDayNum != null">
+        #{actDayNum,jdbcType=SMALLINT},
+      </if>
+      <if test="actUnitPrc != null">
+        #{actUnitPrc,jdbcType=SMALLINT},
+      </if>
+      <if test="remark != null">
+        #{remark,jdbcType=VARCHAR},
+      </if>
+      <if test="createdBy != null">
+        #{createdBy,jdbcType=BIGINT},
+      </if>
+      <if test="createdTime != null">
+        #{createdTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updatedBy != null">
+        #{updatedBy,jdbcType=BIGINT},
+      </if>
+      <if test="updatedTime != null">
+        #{updatedTime,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+</mapper>

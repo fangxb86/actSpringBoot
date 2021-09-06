@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.gwd.mapper.AdtNftMapper">
+  <resultMap id="BaseResultMap" type="com.gwd.entity.AdtNft">
+    <constructor>
+      <arg column="adt_ntf_id" javaType="java.lang.Long" jdbcType="BIGINT" />
+      <arg column="adt_ntf_ttl" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="adt_grp_id" javaType="java.lang.Long" jdbcType="BIGINT" />
+      <arg column="rcv_inst_id" javaType="java.lang.Long" jdbcType="BIGINT" />
+      <arg column="rcv_emp_id" javaType="java.lang.Long" jdbcType="BIGINT" />
+      <arg column="created_by" javaType="java.lang.Long" jdbcType="BIGINT" />
+      <arg column="created_time" javaType="java.util.Date" jdbcType="TIMESTAMP" />
+      <arg column="updated_by" javaType="java.lang.Long" jdbcType="BIGINT" />
+      <arg column="updated_time" javaType="java.util.Date" jdbcType="TIMESTAMP" />
+    </constructor>
+  </resultMap>
+  <insert id="insert" parameterType="com.gwd.entity.AdtNft">
+    insert into adt_ntf (adt_ntf_id, adt_ntf_ttl, adt_grp_id, 
+      rcv_inst_id, rcv_emp_id, created_by, 
+      created_time, updated_by, updated_time
+      )
+    values (#{adtNtfId,jdbcType=BIGINT}, #{adtNtfTtl,jdbcType=VARCHAR}, #{adtGrpId,jdbcType=BIGINT}, 
+      #{rcvInstId,jdbcType=BIGINT}, #{rcvEmpId,jdbcType=BIGINT}, #{createdBy,jdbcType=BIGINT}, 
+      #{createdTime,jdbcType=TIMESTAMP}, #{updatedBy,jdbcType=BIGINT}, #{updatedTime,jdbcType=TIMESTAMP}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.gwd.entity.AdtNft">
+    insert into adt_ntf
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="adtNtfId != null">
+        adt_ntf_id,
+      </if>
+      <if test="adtNtfTtl != null">
+        adt_ntf_ttl,
+      </if>
+      <if test="adtGrpId != null">
+        adt_grp_id,
+      </if>
+      <if test="rcvInstId != null">
+        rcv_inst_id,
+      </if>
+      <if test="rcvEmpId != null">
+        rcv_emp_id,
+      </if>
+      <if test="createdBy != null">
+        created_by,
+      </if>
+      <if test="createdTime != null">
+        created_time,
+      </if>
+      <if test="updatedBy != null">
+        updated_by,
+      </if>
+      <if test="updatedTime != null">
+        updated_time,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="adtNtfId != null">
+        #{adtNtfId,jdbcType=BIGINT},
+      </if>
+      <if test="adtNtfTtl != null">
+        #{adtNtfTtl,jdbcType=VARCHAR},
+      </if>
+      <if test="adtGrpId != null">
+        #{adtGrpId,jdbcType=BIGINT},
+      </if>
+      <if test="rcvInstId != null">
+        #{rcvInstId,jdbcType=BIGINT},
+      </if>
+      <if test="rcvEmpId != null">
+        #{rcvEmpId,jdbcType=BIGINT},
+      </if>
+      <if test="createdBy != null">
+        #{createdBy,jdbcType=BIGINT},
+      </if>
+      <if test="createdTime != null">
+        #{createdTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updatedBy != null">
+        #{updatedBy,jdbcType=BIGINT},
+      </if>
+      <if test="updatedTime != null">
+        #{updatedTime,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+</mapper>

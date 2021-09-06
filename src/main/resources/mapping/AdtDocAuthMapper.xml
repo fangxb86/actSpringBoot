@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.gwd.mapper.AdtDocAuthMapper">
+  <resultMap id="BaseResultMap" type="com.gwd.entity.AdtDocAuth">
+    <constructor>
+      <arg column="lgc_sn" javaType="java.lang.Long" jdbcType="BIGINT" />
+      <arg column="adt_doc_id" javaType="java.lang.Long" jdbcType="BIGINT" />
+      <arg column="adt_prj_id" javaType="java.lang.Long" jdbcType="BIGINT" />
+      <arg column="adt_grp_id" javaType="java.lang.Long" jdbcType="BIGINT" />
+      <arg column="auth_psn_id" javaType="java.lang.Long" jdbcType="BIGINT" />
+      <arg column="auth_psn_nm" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="auth_sttm" javaType="java.util.Date" jdbcType="TIMESTAMP" />
+      <arg column="auth_edtm" javaType="java.util.Date" jdbcType="TIMESTAMP" />
+      <arg column="created_by" javaType="java.lang.Long" jdbcType="BIGINT" />
+      <arg column="created_time" javaType="java.util.Date" jdbcType="TIMESTAMP" />
+      <arg column="updated_by" javaType="java.lang.Long" jdbcType="BIGINT" />
+      <arg column="updated_time" javaType="java.util.Date" jdbcType="TIMESTAMP" />
+    </constructor>
+  </resultMap>
+  <insert id="insert" parameterType="com.gwd.entity.AdtDocAuth">
+    insert into adt_doc_auth (lgc_sn, adt_doc_id, adt_prj_id, 
+      adt_grp_id, auth_psn_id, auth_psn_nm, 
+      auth_sttm, auth_edtm, created_by, 
+      created_time, updated_by, updated_time
+      )
+    values (#{lgcSn,jdbcType=BIGINT}, #{adtDocId,jdbcType=BIGINT}, #{adtPrjId,jdbcType=BIGINT}, 
+      #{adtGrpId,jdbcType=BIGINT}, #{authPsnId,jdbcType=BIGINT}, #{authPsnNm,jdbcType=VARCHAR}, 
+      #{authSttm,jdbcType=TIMESTAMP}, #{authEdtm,jdbcType=TIMESTAMP}, #{createdBy,jdbcType=BIGINT}, 
+      #{createdTime,jdbcType=TIMESTAMP}, #{updatedBy,jdbcType=BIGINT}, #{updatedTime,jdbcType=TIMESTAMP}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.gwd.entity.AdtDocAuth">
+    insert into adt_doc_auth
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="lgcSn != null">
+        lgc_sn,
+      </if>
+      <if test="adtDocId != null">
+        adt_doc_id,
+      </if>
+      <if test="adtPrjId != null">
+        adt_prj_id,
+      </if>
+      <if test="adtGrpId != null">
+        adt_grp_id,
+      </if>
+      <if test="authPsnId != null">
+        auth_psn_id,
+      </if>
+      <if test="authPsnNm != null">
+        auth_psn_nm,
+      </if>
+      <if test="authSttm != null">
+        auth_sttm,
+      </if>
+      <if test="authEdtm != null">
+        auth_edtm,
+      </if>
+      <if test="createdBy != null">
+        created_by,
+      </if>
+      <if test="createdTime != null">
+        created_time,
+      </if>
+      <if test="updatedBy != null">
+        updated_by,
+      </if>
+      <if test="updatedTime != null">
+        updated_time,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="lgcSn != null">
+        #{lgcSn,jdbcType=BIGINT},
+      </if>
+      <if test="adtDocId != null">
+        #{adtDocId,jdbcType=BIGINT},
+      </if>
+      <if test="adtPrjId != null">
+        #{adtPrjId,jdbcType=BIGINT},
+      </if>
+      <if test="adtGrpId != null">
+        #{adtGrpId,jdbcType=BIGINT},
+      </if>
+      <if test="authPsnId != null">
+        #{authPsnId,jdbcType=BIGINT},
+      </if>
+      <if test="authPsnNm != null">
+        #{authPsnNm,jdbcType=VARCHAR},
+      </if>
+      <if test="authSttm != null">
+        #{authSttm,jdbcType=TIMESTAMP},
+      </if>
+      <if test="authEdtm != null">
+        #{authEdtm,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createdBy != null">
+        #{createdBy,jdbcType=BIGINT},
+      </if>
+      <if test="createdTime != null">
+        #{createdTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updatedBy != null">
+        #{updatedBy,jdbcType=BIGINT},
+      </if>
+      <if test="updatedTime != null">
+        #{updatedTime,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+</mapper>

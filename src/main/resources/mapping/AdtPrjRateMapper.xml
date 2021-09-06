@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.gwd.mapper.AdtPrjRateMapper">
+  <resultMap id="BaseResultMap" type="com.gwd.entity.AdtPrjRate">
+    <constructor>
+      <arg column="adt_prj_id" javaType="java.lang.Long" jdbcType="BIGINT" />
+      <arg column="rate" javaType="java.lang.Byte" jdbcType="TINYINT" />
+      <arg column="score" javaType="java.lang.Byte" jdbcType="TINYINT" />
+      <arg column="file_uploader_id" javaType="java.lang.Long" jdbcType="BIGINT" />
+      <arg column="created_by" javaType="java.lang.Long" jdbcType="BIGINT" />
+      <arg column="created_time" javaType="java.util.Date" jdbcType="TIMESTAMP" />
+      <arg column="updated_by" javaType="java.lang.Long" jdbcType="BIGINT" />
+      <arg column="updated_time" javaType="java.util.Date" jdbcType="TIMESTAMP" />
+    </constructor>
+  </resultMap>
+  <insert id="insert" parameterType="com.gwd.entity.AdtPrjRate">
+    insert into adt_prj_rate (adt_prj_id, rate, score, 
+      file_uploader_id, created_by, created_time, 
+      updated_by, updated_time)
+    values (#{adtPrjId,jdbcType=BIGINT}, #{rate,jdbcType=TINYINT}, #{score,jdbcType=TINYINT}, 
+      #{fileUploaderId,jdbcType=BIGINT}, #{createdBy,jdbcType=BIGINT}, #{createdTime,jdbcType=TIMESTAMP}, 
+      #{updatedBy,jdbcType=BIGINT}, #{updatedTime,jdbcType=TIMESTAMP})
+  </insert>
+  <insert id="insertSelective" parameterType="com.gwd.entity.AdtPrjRate">
+    insert into adt_prj_rate
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="adtPrjId != null">
+        adt_prj_id,
+      </if>
+      <if test="rate != null">
+        rate,
+      </if>
+      <if test="score != null">
+        score,
+      </if>
+      <if test="fileUploaderId != null">
+        file_uploader_id,
+      </if>
+      <if test="createdBy != null">
+        created_by,
+      </if>
+      <if test="createdTime != null">
+        created_time,
+      </if>
+      <if test="updatedBy != null">
+        updated_by,
+      </if>
+      <if test="updatedTime != null">
+        updated_time,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="adtPrjId != null">
+        #{adtPrjId,jdbcType=BIGINT},
+      </if>
+      <if test="rate != null">
+        #{rate,jdbcType=TINYINT},
+      </if>
+      <if test="score != null">
+        #{score,jdbcType=TINYINT},
+      </if>
+      <if test="fileUploaderId != null">
+        #{fileUploaderId,jdbcType=BIGINT},
+      </if>
+      <if test="createdBy != null">
+        #{createdBy,jdbcType=BIGINT},
+      </if>
+      <if test="createdTime != null">
+        #{createdTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updatedBy != null">
+        #{updatedBy,jdbcType=BIGINT},
+      </if>
+      <if test="updatedTime != null">
+        #{updatedTime,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+</mapper>

@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.gwd.mapper.AdtRptMapper">
+  <resultMap id="BaseResultMap" type="com.gwd.entity.AdtRpt">
+    <constructor>
+      <arg column="adt_rpt_id" javaType="java.lang.Long" jdbcType="BIGINT" />
+      <arg column="adt_rpt_nm" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="rpt_type" javaType="java.lang.Byte" jdbcType="TINYINT" />
+      <arg column="rpt_desc" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="creater_nm" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="created_by" javaType="java.lang.Long" jdbcType="BIGINT" />
+      <arg column="created_time" javaType="java.util.Date" jdbcType="TIMESTAMP" />
+      <arg column="updated_by" javaType="java.lang.Long" jdbcType="BIGINT" />
+      <arg column="updated_time" javaType="java.util.Date" jdbcType="TIMESTAMP" />
+    </constructor>
+  </resultMap>
+  <insert id="insert" parameterType="com.gwd.entity.AdtRpt">
+    insert into adt_rpt (adt_rpt_id, adt_rpt_nm, rpt_type, 
+      rpt_desc, creater_nm, created_by, 
+      created_time, updated_by, updated_time
+      )
+    values (#{adtRptId,jdbcType=BIGINT}, #{adtRptNm,jdbcType=VARCHAR}, #{rptType,jdbcType=TINYINT}, 
+      #{rptDesc,jdbcType=VARCHAR}, #{createrNm,jdbcType=VARCHAR}, #{createdBy,jdbcType=BIGINT}, 
+      #{createdTime,jdbcType=TIMESTAMP}, #{updatedBy,jdbcType=BIGINT}, #{updatedTime,jdbcType=TIMESTAMP}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.gwd.entity.AdtRpt">
+    insert into adt_rpt
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="adtRptId != null">
+        adt_rpt_id,
+      </if>
+      <if test="adtRptNm != null">
+        adt_rpt_nm,
+      </if>
+      <if test="rptType != null">
+        rpt_type,
+      </if>
+      <if test="rptDesc != null">
+        rpt_desc,
+      </if>
+      <if test="createrNm != null">
+        creater_nm,
+      </if>
+      <if test="createdBy != null">
+        created_by,
+      </if>
+      <if test="createdTime != null">
+        created_time,
+      </if>
+      <if test="updatedBy != null">
+        updated_by,
+      </if>
+      <if test="updatedTime != null">
+        updated_time,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="adtRptId != null">
+        #{adtRptId,jdbcType=BIGINT},
+      </if>
+      <if test="adtRptNm != null">
+        #{adtRptNm,jdbcType=VARCHAR},
+      </if>
+      <if test="rptType != null">
+        #{rptType,jdbcType=TINYINT},
+      </if>
+      <if test="rptDesc != null">
+        #{rptDesc,jdbcType=VARCHAR},
+      </if>
+      <if test="createrNm != null">
+        #{createrNm,jdbcType=VARCHAR},
+      </if>
+      <if test="createdBy != null">
+        #{createdBy,jdbcType=BIGINT},
+      </if>
+      <if test="createdTime != null">
+        #{createdTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updatedBy != null">
+        #{updatedBy,jdbcType=BIGINT},
+      </if>
+      <if test="updatedTime != null">
+        #{updatedTime,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+</mapper>
