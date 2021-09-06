@@ -17,8 +17,8 @@ import java.util.Map;
 
 @Slf4j
 @RestController
-@RequestMapping("/subp")
-@Api("Activiti子流程例子subp")
+@RequestMapping("/process")
+@Api("Activiti流程例子")
 public class SubProcessController {
  
  
