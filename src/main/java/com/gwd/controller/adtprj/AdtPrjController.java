@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 @RequestMapping("/adtprj")
 @Api("项目列表控制器")
-public class AdtprjController {
+public class AdtPrjController {
 
     @PutMapping("queryPrjListPage")
     @ApiOperation(value="查询项目列表")

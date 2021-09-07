@@ -2,18 +2,28 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.gwd.mapper.AdtPlanMapper">
   <resultMap id="BaseResultMap" type="com.gwd.entity.AdtPlan">
-    <constructor>
-      <arg column="adt_plan_id" javaType="java.lang.Long" jdbcType="BIGINT" />
-      <arg column="adt_plan_nm" javaType="java.lang.String" jdbcType="VARCHAR" />
-      <arg column="adt_tgt" javaType="java.lang.String" jdbcType="VARCHAR" />
-      <arg column="plan_anul" javaType="java.lang.String" jdbcType="VARCHAR" />
-      <arg column="plan_dept_id" javaType="java.lang.Long" jdbcType="BIGINT" />
-      <arg column="created_by" javaType="java.lang.Long" jdbcType="BIGINT" />
-      <arg column="created_time" javaType="java.util.Date" jdbcType="TIMESTAMP" />
-      <arg column="updated_by" javaType="java.lang.Long" jdbcType="BIGINT" />
-      <arg column="updated_time" javaType="java.util.Date" jdbcType="TIMESTAMP" />
-    </constructor>
+    <result column="adt_plan_id" property="adtPlanId" javaType="java.lang.Long" jdbcType="BIGINT" />
+    <result column="adt_plan_nm" property="adtPlanNm" javaType="java.lang.String" jdbcType="VARCHAR" />
+    <result column="adt_tgt" property="adtTgt" javaType="java.lang.String" jdbcType="VARCHAR" />
+    <result column="plan_anul" property="planAnul" javaType="java.lang.String" jdbcType="VARCHAR" />
+    <result column="plan_dept_id" property="planDeptId" javaType="java.lang.Long" jdbcType="BIGINT" />
+    <result column="created_by" property="createdBy" javaType="java.lang.Long" jdbcType="BIGINT" />
+    <result column="created_time" property="createdTime" javaType="java.util.Date" jdbcType="TIMESTAMP" />
+    <result column="updated_by" property="updatedBy" javaType="java.lang.Long" jdbcType="BIGINT" />
+    <result column="updated_time" property="updatedTime" javaType="java.util.Date" jdbcType="TIMESTAMP" />
   </resultMap>
+
+  <sql id="Base_Column_List">
+    adt_plan_id, adt_plan_nm, adt_tgt, plan_anul, plan_dept_id, created_by, created_time, updated_by, updated_time
+  </sql>
+
+  <select id="getAll" resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List"/>
+    from adt_plan
+   </select>
+
+
   <insert id="insert" parameterType="com.gwd.entity.AdtPlan">
     insert into adt_plan (adt_plan_id, adt_plan_nm, adt_tgt, 
       plan_anul, plan_dept_id, created_by, 
