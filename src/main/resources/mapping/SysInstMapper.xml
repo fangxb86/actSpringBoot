@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.gwd.mapper.SysInstMapper">
+  <resultMap id="BaseResultMap" type="com.gwd.entity.SysInst">
+    <constructor>
+      <arg column="inst_id" javaType="java.lang.Long" jdbcType="BIGINT" />
+      <arg column="inst_nm" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="parent_id" javaType="java.lang.Long" jdbcType="BIGINT" />
+      <arg column="parent_nm" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="node_rte_info" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="sort" javaType="java.lang.Byte" jdbcType="TINYINT" />
+      <arg column="inst_type" javaType="java.lang.Byte" jdbcType="TINYINT" />
+      <arg column="state" javaType="java.lang.Byte" jdbcType="TINYINT" />
+      <arg column="tel" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="created_by" javaType="java.lang.Long" jdbcType="BIGINT" />
+      <arg column="created_time" javaType="java.util.Date" jdbcType="TIMESTAMP" />
+      <arg column="updated_by" javaType="java.lang.Long" jdbcType="BIGINT" />
+      <arg column="updated_time" javaType="java.util.Date" jdbcType="TIMESTAMP" />
+    </constructor>
+  </resultMap>
+  <insert id="insert" parameterType="com.gwd.entity.SysInst">
+    insert into sys_inst (inst_id, inst_nm, parent_id, 
+      parent_nm, node_rte_info, sort, 
+      inst_type, state, tel, 
+      created_by, created_time, updated_by, 
+      updated_time)
+    values (#{instId,jdbcType=BIGINT}, #{instNm,jdbcType=VARCHAR}, #{parentId,jdbcType=BIGINT}, 
+      #{parentNm,jdbcType=VARCHAR}, #{nodeRteInfo,jdbcType=VARCHAR}, #{sort,jdbcType=TINYINT}, 
+      #{instType,jdbcType=TINYINT}, #{state,jdbcType=TINYINT}, #{tel,jdbcType=VARCHAR}, 
+      #{createdBy,jdbcType=BIGINT}, #{createdTime,jdbcType=TIMESTAMP}, #{updatedBy,jdbcType=BIGINT}, 
+      #{updatedTime,jdbcType=TIMESTAMP})
+  </insert>
+  <insert id="insertSelective" parameterType="com.gwd.entity.SysInst">
+    insert into sys_inst
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="instId != null">
+        inst_id,
+      </if>
+      <if test="instNm != null">
+        inst_nm,
+      </if>
+      <if test="parentId != null">
+        parent_id,
+      </if>
+      <if test="parentNm != null">
+        parent_nm,
+      </if>
+      <if test="nodeRteInfo != null">
+        node_rte_info,
+      </if>
+      <if test="sort != null">
+        sort,
+      </if>
+      <if test="instType != null">
+        inst_type,
+      </if>
+      <if test="state != null">
+        state,
+      </if>
+      <if test="tel != null">
+        tel,
+      </if>
+      <if test="createdBy != null">
+        created_by,
+      </if>
+      <if test="createdTime != null">
+        created_time,
+      </if>
+      <if test="updatedBy != null">
+        updated_by,
+      </if>
+      <if test="updatedTime != null">
+        updated_time,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="instId != null">
+        #{instId,jdbcType=BIGINT},
+      </if>
+      <if test="instNm != null">
+        #{instNm,jdbcType=VARCHAR},
+      </if>
+      <if test="parentId != null">
+        #{parentId,jdbcType=BIGINT},
+      </if>
+      <if test="parentNm != null">
+        #{parentNm,jdbcType=VARCHAR},
+      </if>
+      <if test="nodeRteInfo != null">
+        #{nodeRteInfo,jdbcType=VARCHAR},
+      </if>
+      <if test="sort != null">
+        #{sort,jdbcType=TINYINT},
+      </if>
+      <if test="instType != null">
+        #{instType,jdbcType=TINYINT},
+      </if>
+      <if test="state != null">
+        #{state,jdbcType=TINYINT},
+      </if>
+      <if test="tel != null">
+        #{tel,jdbcType=VARCHAR},
+      </if>
+      <if test="createdBy != null">
+        #{createdBy,jdbcType=BIGINT},
+      </if>
+      <if test="createdTime != null">
+        #{createdTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updatedBy != null">
+        #{updatedBy,jdbcType=BIGINT},
+      </if>
+      <if test="updatedTime != null">
+        #{updatedTime,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+</mapper>

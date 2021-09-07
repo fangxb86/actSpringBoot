@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.gwd.mapper.AdtIssueMapper">
+  <resultMap id="BaseResultMap" type="com.gwd.entity.AdtIssue">
+    <constructor>
+      <arg column="adt_issue_id" javaType="java.lang.Long" jdbcType="BIGINT" />
+      <arg column="adt_issue_nm" javaType="java.lang.Long" jdbcType="BIGINT" />
+      <arg column="issue_type" javaType="java.lang.Byte" jdbcType="TINYINT" />
+      <arg column="ctrl_dfct_ind" javaType="java.lang.Byte" jdbcType="TINYINT" />
+      <arg column="seris_dgr_ind" javaType="java.lang.Byte" jdbcType="TINYINT" />
+      <arg column="adt_prj_id" javaType="java.lang.Long" jdbcType="BIGINT" />
+      <arg column="adt_grp_id" javaType="java.lang.Long" jdbcType="BIGINT" />
+      <arg column="adt_anls" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="adt_advc" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="hpn_inst_nm" javaType="java.lang.Long" jdbcType="BIGINT" />
+      <arg column="hpn_date" javaType="java.util.Date" jdbcType="DATE" />
+      <arg column="show_form" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="eft_type" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="created_by" javaType="java.lang.Long" jdbcType="BIGINT" />
+      <arg column="created_time" javaType="java.util.Date" jdbcType="TIMESTAMP" />
+      <arg column="updated_by" javaType="java.lang.Long" jdbcType="BIGINT" />
+      <arg column="updated_time" javaType="java.util.Date" jdbcType="TIMESTAMP" />
+    </constructor>
+  </resultMap>
+  <insert id="insert" parameterType="com.gwd.entity.AdtIssue">
+    insert into adt_issue (adt_issue_id, adt_issue_nm, issue_type, 
+      ctrl_dfct_ind, seris_dgr_ind, adt_prj_id, 
+      adt_grp_id, adt_anls, adt_advc, 
+      hpn_inst_nm, hpn_date, show_form, 
+      eft_type, created_by, created_time, 
+      updated_by, updated_time)
+    values (#{adtIssueId,jdbcType=BIGINT}, #{adtIssueNm,jdbcType=BIGINT}, #{issueType,jdbcType=TINYINT}, 
+      #{ctrlDfctInd,jdbcType=TINYINT}, #{serisDgrInd,jdbcType=TINYINT}, #{adtPrjId,jdbcType=BIGINT}, 
+      #{adtGrpId,jdbcType=BIGINT}, #{adtAnls,jdbcType=VARCHAR}, #{adtAdvc,jdbcType=VARCHAR}, 
+      #{hpnInstNm,jdbcType=BIGINT}, #{hpnDate,jdbcType=DATE}, #{showForm,jdbcType=VARCHAR}, 
+      #{eftType,jdbcType=VARCHAR}, #{createdBy,jdbcType=BIGINT}, #{createdTime,jdbcType=TIMESTAMP}, 
+      #{updatedBy,jdbcType=BIGINT}, #{updatedTime,jdbcType=TIMESTAMP})
+  </insert>
+  <insert id="insertSelective" parameterType="com.gwd.entity.AdtIssue">
+    insert into adt_issue
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="adtIssueId != null">
+        adt_issue_id,
+      </if>
+      <if test="adtIssueNm != null">
+        adt_issue_nm,
+      </if>
+      <if test="issueType != null">
+        issue_type,
+      </if>
+      <if test="ctrlDfctInd != null">
+        ctrl_dfct_ind,
+      </if>
+      <if test="serisDgrInd != null">
+        seris_dgr_ind,
+      </if>
+      <if test="adtPrjId != null">
+        adt_prj_id,
+      </if>
+      <if test="adtGrpId != null">
+        adt_grp_id,
+      </if>
+      <if test="adtAnls != null">
+        adt_anls,
+      </if>
+      <if test="adtAdvc != null">
+        adt_advc,
+      </if>
+      <if test="hpnInstNm != null">
+        hpn_inst_nm,
+      </if>
+      <if test="hpnDate != null">
+        hpn_date,
+      </if>
+      <if test="showForm != null">
+        show_form,
+      </if>
+      <if test="eftType != null">
+        eft_type,
+      </if>
+      <if test="createdBy != null">
+        created_by,
+      </if>
+      <if test="createdTime != null">
+        created_time,
+      </if>
+      <if test="updatedBy != null">
+        updated_by,
+      </if>
+      <if test="updatedTime != null">
+        updated_time,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="adtIssueId != null">
+        #{adtIssueId,jdbcType=BIGINT},
+      </if>
+      <if test="adtIssueNm != null">
+        #{adtIssueNm,jdbcType=BIGINT},
+      </if>
+      <if test="issueType != null">
+        #{issueType,jdbcType=TINYINT},
+      </if>
+      <if test="ctrlDfctInd != null">
+        #{ctrlDfctInd,jdbcType=TINYINT},
+      </if>
+      <if test="serisDgrInd != null">
+        #{serisDgrInd,jdbcType=TINYINT},
+      </if>
+      <if test="adtPrjId != null">
+        #{adtPrjId,jdbcType=BIGINT},
+      </if>
+      <if test="adtGrpId != null">
+        #{adtGrpId,jdbcType=BIGINT},
+      </if>
+      <if test="adtAnls != null">
+        #{adtAnls,jdbcType=VARCHAR},
+      </if>
+      <if test="adtAdvc != null">
+        #{adtAdvc,jdbcType=VARCHAR},
+      </if>
+      <if test="hpnInstNm != null">
+        #{hpnInstNm,jdbcType=BIGINT},
+      </if>
+      <if test="hpnDate != null">
+        #{hpnDate,jdbcType=DATE},
+      </if>
+      <if test="showForm != null">
+        #{showForm,jdbcType=VARCHAR},
+      </if>
+      <if test="eftType != null">
+        #{eftType,jdbcType=VARCHAR},
+      </if>
+      <if test="createdBy != null">
+        #{createdBy,jdbcType=BIGINT},
+      </if>
+      <if test="createdTime != null">
+        #{createdTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updatedBy != null">
+        #{updatedBy,jdbcType=BIGINT},
+      </if>
+      <if test="updatedTime != null">
+        #{updatedTime,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+</mapper>

@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.gwd.mapper.AdtTrcRctfMapper">
+  <resultMap id="BaseResultMap" type="com.gwd.entity.AdtTrcRctf">
+    <constructor>
+      <arg column="adt_dft_id" javaType="java.lang.Long" jdbcType="BIGINT" />
+      <arg column="adt_dft_nm" javaType="java.lang.Long" jdbcType="BIGINT" />
+      <arg column="unit" javaType="java.lang.Byte" jdbcType="TINYINT" />
+      <arg column="issue_num" javaType="java.lang.Byte" jdbcType="TINYINT" />
+      <arg column="rctf_num" javaType="java.lang.Byte" jdbcType="TINYINT" />
+      <arg column="issue_amt" javaType="java.math.BigDecimal" jdbcType="DECIMAL" />
+      <arg column="rctf_amt" javaType="java.math.BigDecimal" jdbcType="DECIMAL" />
+      <arg column="rctf_state" javaType="java.lang.Byte" jdbcType="TINYINT" />
+      <arg column="rctf_res" javaType="java.lang.Byte" jdbcType="TINYINT" />
+      <arg column="not_rctf_cus" javaType="java.lang.Byte" jdbcType="TINYINT" />
+      <arg column="issue_trk_type" javaType="java.lang.Byte" jdbcType="TINYINT" />
+      <arg column="rctf_date" javaType="java.util.Date" jdbcType="DATE" />
+      <arg column="rctf_desc" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="created_by" javaType="java.lang.Long" jdbcType="BIGINT" />
+      <arg column="created_time" javaType="java.util.Date" jdbcType="TIMESTAMP" />
+      <arg column="updated_by" javaType="java.lang.Long" jdbcType="BIGINT" />
+      <arg column="updated_time" javaType="java.util.Date" jdbcType="TIMESTAMP" />
+    </constructor>
+  </resultMap>
+  <insert id="insert" parameterType="com.gwd.entity.AdtTrcRctf">
+    insert into adt_trc_rctf (adt_dft_id, adt_dft_nm, unit, 
+      issue_num, rctf_num, issue_amt, 
+      rctf_amt, rctf_state, rctf_res, 
+      not_rctf_cus, issue_trk_type, rctf_date, 
+      rctf_desc, created_by, created_time, 
+      updated_by, updated_time)
+    values (#{adtDftId,jdbcType=BIGINT}, #{adtDftNm,jdbcType=BIGINT}, #{unit,jdbcType=TINYINT}, 
+      #{issueNum,jdbcType=TINYINT}, #{rctfNum,jdbcType=TINYINT}, #{issueAmt,jdbcType=DECIMAL}, 
+      #{rctfAmt,jdbcType=DECIMAL}, #{rctfState,jdbcType=TINYINT}, #{rctfRes,jdbcType=TINYINT}, 
+      #{notRctfCus,jdbcType=TINYINT}, #{issueTrkType,jdbcType=TINYINT}, #{rctfDate,jdbcType=DATE}, 
+      #{rctfDesc,jdbcType=VARCHAR}, #{createdBy,jdbcType=BIGINT}, #{createdTime,jdbcType=TIMESTAMP}, 
+      #{updatedBy,jdbcType=BIGINT}, #{updatedTime,jdbcType=TIMESTAMP})
+  </insert>
+  <insert id="insertSelective" parameterType="com.gwd.entity.AdtTrcRctf">
+    insert into adt_trc_rctf
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="adtDftId != null">
+        adt_dft_id,
+      </if>
+      <if test="adtDftNm != null">
+        adt_dft_nm,
+      </if>
+      <if test="unit != null">
+        unit,
+      </if>
+      <if test="issueNum != null">
+        issue_num,
+      </if>
+      <if test="rctfNum != null">
+        rctf_num,
+      </if>
+      <if test="issueAmt != null">
+        issue_amt,
+      </if>
+      <if test="rctfAmt != null">
+        rctf_amt,
+      </if>
+      <if test="rctfState != null">
+        rctf_state,
+      </if>
+      <if test="rctfRes != null">
+        rctf_res,
+      </if>
+      <if test="notRctfCus != null">
+        not_rctf_cus,
+      </if>
+      <if test="issueTrkType != null">
+        issue_trk_type,
+      </if>
+      <if test="rctfDate != null">
+        rctf_date,
+      </if>
+      <if test="rctfDesc != null">
+        rctf_desc,
+      </if>
+      <if test="createdBy != null">
+        created_by,
+      </if>
+      <if test="createdTime != null">
+        created_time,
+      </if>
+      <if test="updatedBy != null">
+        updated_by,
+      </if>
+      <if test="updatedTime != null">
+        updated_time,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="adtDftId != null">
+        #{adtDftId,jdbcType=BIGINT},
+      </if>
+      <if test="adtDftNm != null">
+        #{adtDftNm,jdbcType=BIGINT},
+      </if>
+      <if test="unit != null">
+        #{unit,jdbcType=TINYINT},
+      </if>
+      <if test="issueNum != null">
+        #{issueNum,jdbcType=TINYINT},
+      </if>
+      <if test="rctfNum != null">
+        #{rctfNum,jdbcType=TINYINT},
+      </if>
+      <if test="issueAmt != null">
+        #{issueAmt,jdbcType=DECIMAL},
+      </if>
+      <if test="rctfAmt != null">
+        #{rctfAmt,jdbcType=DECIMAL},
+      </if>
+      <if test="rctfState != null">
+        #{rctfState,jdbcType=TINYINT},
+      </if>
+      <if test="rctfRes != null">
+        #{rctfRes,jdbcType=TINYINT},
+      </if>
+      <if test="notRctfCus != null">
+        #{notRctfCus,jdbcType=TINYINT},
+      </if>
+      <if test="issueTrkType != null">
+        #{issueTrkType,jdbcType=TINYINT},
+      </if>
+      <if test="rctfDate != null">
+        #{rctfDate,jdbcType=DATE},
+      </if>
+      <if test="rctfDesc != null">
+        #{rctfDesc,jdbcType=VARCHAR},
+      </if>
+      <if test="createdBy != null">
+        #{createdBy,jdbcType=BIGINT},
+      </if>
+      <if test="createdTime != null">
+        #{createdTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updatedBy != null">
+        #{updatedBy,jdbcType=BIGINT},
+      </if>
+      <if test="updatedTime != null">
+        #{updatedTime,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+</mapper>

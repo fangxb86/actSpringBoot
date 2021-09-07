@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.gwd.mapper.AdtPlanMapper">
+  <resultMap id="BaseResultMap" type="com.gwd.entity.AdtPlan">
+    <constructor>
+      <arg column="adt_plan_id" javaType="java.lang.Long" jdbcType="BIGINT" />
+      <arg column="adt_plan_nm" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="adt_tgt" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="plan_anul" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="plan_dept_id" javaType="java.lang.Long" jdbcType="BIGINT" />
+      <arg column="created_by" javaType="java.lang.Long" jdbcType="BIGINT" />
+      <arg column="created_time" javaType="java.util.Date" jdbcType="TIMESTAMP" />
+      <arg column="updated_by" javaType="java.lang.Long" jdbcType="BIGINT" />
+      <arg column="updated_time" javaType="java.util.Date" jdbcType="TIMESTAMP" />
+    </constructor>
+  </resultMap>
+  <insert id="insert" parameterType="com.gwd.entity.AdtPlan">
+    insert into adt_plan (adt_plan_id, adt_plan_nm, adt_tgt, 
+      plan_anul, plan_dept_id, created_by, 
+      created_time, updated_by, updated_time
+      )
+    values (#{adtPlanId,jdbcType=BIGINT}, #{adtPlanNm,jdbcType=VARCHAR}, #{adtTgt,jdbcType=VARCHAR}, 
+      #{planAnul,jdbcType=VARCHAR}, #{planDeptId,jdbcType=BIGINT}, #{createdBy,jdbcType=BIGINT}, 
+      #{createdTime,jdbcType=TIMESTAMP}, #{updatedBy,jdbcType=BIGINT}, #{updatedTime,jdbcType=TIMESTAMP}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.gwd.entity.AdtPlan">
+    insert into adt_plan
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="adtPlanId != null">
+        adt_plan_id,
+      </if>
+      <if test="adtPlanNm != null">
+        adt_plan_nm,
+      </if>
+      <if test="adtTgt != null">
+        adt_tgt,
+      </if>
+      <if test="planAnul != null">
+        plan_anul,
+      </if>
+      <if test="planDeptId != null">
+        plan_dept_id,
+      </if>
+      <if test="createdBy != null">
+        created_by,
+      </if>
+      <if test="createdTime != null">
+        created_time,
+      </if>
+      <if test="updatedBy != null">
+        updated_by,
+      </if>
+      <if test="updatedTime != null">
+        updated_time,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="adtPlanId != null">
+        #{adtPlanId,jdbcType=BIGINT},
+      </if>
+      <if test="adtPlanNm != null">
+        #{adtPlanNm,jdbcType=VARCHAR},
+      </if>
+      <if test="adtTgt != null">
+        #{adtTgt,jdbcType=VARCHAR},
+      </if>
+      <if test="planAnul != null">
+        #{planAnul,jdbcType=VARCHAR},
+      </if>
+      <if test="planDeptId != null">
+        #{planDeptId,jdbcType=BIGINT},
+      </if>
+      <if test="createdBy != null">
+        #{createdBy,jdbcType=BIGINT},
+      </if>
+      <if test="createdTime != null">
+        #{createdTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updatedBy != null">
+        #{updatedBy,jdbcType=BIGINT},
+      </if>
+      <if test="updatedTime != null">
+        #{updatedTime,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+</mapper>

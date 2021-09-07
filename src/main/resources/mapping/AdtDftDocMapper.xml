@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.gwd.mapper.AdtDftDocMapper">
+  <resultMap id="BaseResultMap" type="com.gwd.entity.AdtDftDoc">
+    <constructor>
+      <arg column="adt_dft_id" javaType="java.lang.Long" jdbcType="BIGINT" />
+      <arg column="adt_doc_id" javaType="java.lang.Long" jdbcType="BIGINT" />
+      <arg column="created_by" javaType="java.lang.Long" jdbcType="BIGINT" />
+      <arg column="created_time" javaType="java.util.Date" jdbcType="TIMESTAMP" />
+      <arg column="updated_by" javaType="java.lang.Long" jdbcType="BIGINT" />
+      <arg column="updated_time" javaType="java.util.Date" jdbcType="TIMESTAMP" />
+    </constructor>
+  </resultMap>
+  <insert id="insert" parameterType="com.gwd.entity.AdtDftDoc">
+    insert into adt_dft_doc (adt_dft_id, adt_doc_id, created_by, 
+      created_time, updated_by, updated_time
+      )
+    values (#{adtDftId,jdbcType=BIGINT}, #{adtDocId,jdbcType=BIGINT}, #{createdBy,jdbcType=BIGINT}, 
+      #{createdTime,jdbcType=TIMESTAMP}, #{updatedBy,jdbcType=BIGINT}, #{updatedTime,jdbcType=TIMESTAMP}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.gwd.entity.AdtDftDoc">
+    insert into adt_dft_doc
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="adtDftId != null">
+        adt_dft_id,
+      </if>
+      <if test="adtDocId != null">
+        adt_doc_id,
+      </if>
+      <if test="createdBy != null">
+        created_by,
+      </if>
+      <if test="createdTime != null">
+        created_time,
+      </if>
+      <if test="updatedBy != null">
+        updated_by,
+      </if>
+      <if test="updatedTime != null">
+        updated_time,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="adtDftId != null">
+        #{adtDftId,jdbcType=BIGINT},
+      </if>
+      <if test="adtDocId != null">
+        #{adtDocId,jdbcType=BIGINT},
+      </if>
+      <if test="createdBy != null">
+        #{createdBy,jdbcType=BIGINT},
+      </if>
+      <if test="createdTime != null">
+        #{createdTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updatedBy != null">
+        #{updatedBy,jdbcType=BIGINT},
+      </if>
+      <if test="updatedTime != null">
+        #{updatedTime,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+</mapper>

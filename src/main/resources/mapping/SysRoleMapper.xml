@@ -76,4 +76,79 @@
       </if>
     </trim>
   </insert>
+  <resultMap id="BaseResultMap" type="com.gwd.entity.SysRole">
+    <constructor>
+      <arg column="role_id" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="role_nm" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="stat_ind" javaType="java.lang.Byte" jdbcType="TINYINT" />
+      <arg column="stat_type" javaType="java.lang.Byte" jdbcType="TINYINT" />
+      <arg column="created_by" javaType="java.lang.Long" jdbcType="BIGINT" />
+      <arg column="created_time" javaType="java.util.Date" jdbcType="TIMESTAMP" />
+      <arg column="updated_by" javaType="java.lang.Long" jdbcType="BIGINT" />
+      <arg column="updated_time" javaType="java.util.Date" jdbcType="TIMESTAMP" />
+    </constructor>
+  </resultMap>
+  <insert id="insert" parameterType="com.gwd.entity.SysRole">
+    insert into sys_role (role_id, role_nm, stat_ind, 
+      stat_type, created_by, created_time, 
+      updated_by, updated_time)
+    values (#{roleId,jdbcType=VARCHAR}, #{roleNm,jdbcType=VARCHAR}, #{statInd,jdbcType=TINYINT}, 
+      #{statType,jdbcType=TINYINT}, #{createdBy,jdbcType=BIGINT}, #{createdTime,jdbcType=TIMESTAMP}, 
+      #{updatedBy,jdbcType=BIGINT}, #{updatedTime,jdbcType=TIMESTAMP})
+  </insert>
+  <insert id="insertSelective" parameterType="com.gwd.entity.SysRole">
+    insert into sys_role
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="roleId != null">
+        role_id,
+      </if>
+      <if test="roleNm != null">
+        role_nm,
+      </if>
+      <if test="statInd != null">
+        stat_ind,
+      </if>
+      <if test="statType != null">
+        stat_type,
+      </if>
+      <if test="createdBy != null">
+        created_by,
+      </if>
+      <if test="createdTime != null">
+        created_time,
+      </if>
+      <if test="updatedBy != null">
+        updated_by,
+      </if>
+      <if test="updatedTime != null">
+        updated_time,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="roleId != null">
+        #{roleId,jdbcType=VARCHAR},
+      </if>
+      <if test="roleNm != null">
+        #{roleNm,jdbcType=VARCHAR},
+      </if>
+      <if test="statInd != null">
+        #{statInd,jdbcType=TINYINT},
+      </if>
+      <if test="statType != null">
+        #{statType,jdbcType=TINYINT},
+      </if>
+      <if test="createdBy != null">
+        #{createdBy,jdbcType=BIGINT},
+      </if>
+      <if test="createdTime != null">
+        #{createdTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updatedBy != null">
+        #{updatedBy,jdbcType=BIGINT},
+      </if>
+      <if test="updatedTime != null">
+        #{updatedTime,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
 </mapper>

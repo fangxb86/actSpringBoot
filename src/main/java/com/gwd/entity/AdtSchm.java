@@ -2,14 +2,12 @@ package com.gwd.entity;
 
 import java.util.Date;
 
-public class SysRole {
-    private String roleId;
+public class AdtSchm {
+    private Long adtSchmId;
 
-    private String roleNm;
+    private Long adtGrpId;
 
-    private Byte statInd;
-
-    private Byte statType;
+    private Long adtTgt;
 
     private Long createdBy;
 
@@ -19,51 +17,42 @@ public class SysRole {
 
     private Date updatedTime;
 
-    public SysRole(String roleId, String roleNm, Byte statInd, Byte statType, Long createdBy, Date createdTime, Long updatedBy, Date updatedTime) {
-        this.roleId = roleId;
-        this.roleNm = roleNm;
-        this.statInd = statInd;
-        this.statType = statType;
+    public AdtSchm(Long adtSchmId, Long adtGrpId, Long adtTgt, Long createdBy, Date createdTime, Long updatedBy, Date updatedTime) {
+        this.adtSchmId = adtSchmId;
+        this.adtGrpId = adtGrpId;
+        this.adtTgt = adtTgt;
         this.createdBy = createdBy;
         this.createdTime = createdTime;
         this.updatedBy = updatedBy;
         this.updatedTime = updatedTime;
     }
 
-    public SysRole() {
+    public AdtSchm() {
         super();
     }
 
-    public String getRoleId() {
-        return roleId;
+    public Long getAdtSchmId() {
+        return adtSchmId;
     }
 
-    public void setRoleId(String roleId) {
-        this.roleId = roleId == null ? null : roleId.trim();
+    public void setAdtSchmId(Long adtSchmId) {
+        this.adtSchmId = adtSchmId;
     }
 
-    public String getRoleNm() {
-        return roleNm;
+    public Long getAdtGrpId() {
+        return adtGrpId;
     }
 
-    public void setRoleNm(String roleNm) {
-        this.roleNm = roleNm == null ? null : roleNm.trim();
+    public void setAdtGrpId(Long adtGrpId) {
+        this.adtGrpId = adtGrpId;
     }
 
-    public Byte getStatInd() {
-        return statInd;
+    public Long getAdtTgt() {
+        return adtTgt;
     }
 
-    public void setStatInd(Byte statInd) {
-        this.statInd = statInd;
-    }
-
-    public Byte getStatType() {
-        return statType;
-    }
-
-    public void setStatType(Byte statType) {
-        this.statType = statType;
+    public void setAdtTgt(Long adtTgt) {
+        this.adtTgt = adtTgt;
     }
 
     public Long getCreatedBy() {

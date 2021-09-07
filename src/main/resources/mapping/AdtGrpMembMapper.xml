@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.gwd.mapper.AdtGrpMembMapper">
+  <resultMap id="BaseResultMap" type="com.gwd.entity.AdtGrpMemb">
+    <constructor>
+      <arg column="lgc_sn" javaType="java.lang.Long" jdbcType="BIGINT" />
+      <arg column="emp_id" javaType="java.lang.Long" jdbcType="BIGINT" />
+      <arg column="emp_nm" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="adt_grp_id" javaType="java.lang.Long" jdbcType="BIGINT" />
+      <arg column="role_id" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="state" javaType="java.lang.Byte" jdbcType="TINYINT" />
+      <arg column="act_stdt" javaType="java.util.Date" jdbcType="DATE" />
+      <arg column="created_by" javaType="java.lang.Long" jdbcType="BIGINT" />
+      <arg column="created_time" javaType="java.util.Date" jdbcType="TIMESTAMP" />
+      <arg column="updated_by" javaType="java.lang.Long" jdbcType="BIGINT" />
+      <arg column="updated_time" javaType="java.util.Date" jdbcType="TIMESTAMP" />
+    </constructor>
+  </resultMap>
+  <insert id="insert" parameterType="com.gwd.entity.AdtGrpMemb">
+    insert into adt_grp_memb (lgc_sn, emp_id, emp_nm, 
+      adt_grp_id, role_id, state, 
+      act_stdt, created_by, created_time, 
+      updated_by, updated_time)
+    values (#{lgcSn,jdbcType=BIGINT}, #{empId,jdbcType=BIGINT}, #{empNm,jdbcType=VARCHAR}, 
+      #{adtGrpId,jdbcType=BIGINT}, #{roleId,jdbcType=VARCHAR}, #{state,jdbcType=TINYINT}, 
+      #{actStdt,jdbcType=DATE}, #{createdBy,jdbcType=BIGINT}, #{createdTime,jdbcType=TIMESTAMP}, 
+      #{updatedBy,jdbcType=BIGINT}, #{updatedTime,jdbcType=TIMESTAMP})
+  </insert>
+  <insert id="insertSelective" parameterType="com.gwd.entity.AdtGrpMemb">
+    insert into adt_grp_memb
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="lgcSn != null">
+        lgc_sn,
+      </if>
+      <if test="empId != null">
+        emp_id,
+      </if>
+      <if test="empNm != null">
+        emp_nm,
+      </if>
+      <if test="adtGrpId != null">
+        adt_grp_id,
+      </if>
+      <if test="roleId != null">
+        role_id,
+      </if>
+      <if test="state != null">
+        state,
+      </if>
+      <if test="actStdt != null">
+        act_stdt,
+      </if>
+      <if test="createdBy != null">
+        created_by,
+      </if>
+      <if test="createdTime != null">
+        created_time,
+      </if>
+      <if test="updatedBy != null">
+        updated_by,
+      </if>
+      <if test="updatedTime != null">
+        updated_time,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="lgcSn != null">
+        #{lgcSn,jdbcType=BIGINT},
+      </if>
+      <if test="empId != null">
+        #{empId,jdbcType=BIGINT},
+      </if>
+      <if test="empNm != null">
+        #{empNm,jdbcType=VARCHAR},
+      </if>
+      <if test="adtGrpId != null">
+        #{adtGrpId,jdbcType=BIGINT},
+      </if>
+      <if test="roleId != null">
+        #{roleId,jdbcType=VARCHAR},
+      </if>
+      <if test="state != null">
+        #{state,jdbcType=TINYINT},
+      </if>
+      <if test="actStdt != null">
+        #{actStdt,jdbcType=DATE},
+      </if>
+      <if test="createdBy != null">
+        #{createdBy,jdbcType=BIGINT},
+      </if>
+      <if test="createdTime != null">
+        #{createdTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updatedBy != null">
+        #{updatedBy,jdbcType=BIGINT},
+      </if>
+      <if test="updatedTime != null">
+        #{updatedTime,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+</mapper>
